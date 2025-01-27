@@ -1,0 +1,1894 @@
+          Code Name & Version = MCNP_6.20, 6.2.0
+  
+     _/      _/        _/_/_/       _/      _/       _/_/_/         _/_/_/ 
+    _/_/  _/_/      _/             _/_/    _/       _/    _/     _/        
+   _/  _/  _/      _/             _/  _/  _/       _/_/_/       _/_/_/     
+  _/      _/      _/             _/    _/_/       _/           _/    _/    
+ _/      _/        _/_/_/       _/      _/       _/             _/_/       
+  
+  +-----------------------------------------------------------------------+
+  | Copyright (2018).  Los Alamos National Security, LLC.  All rights     !
+  | reserved.                                                             !
+  |  This material was produced under U.S. Government contract            !
+  | DE-AC52-06NA25396 for Los Alamos National Laboratory, which is        !
+  | operated by Los Alamos National Security, LLC for the U.S.            !
+  | Department of Energy. The Government is granted for itself and        !
+  | others acting on its behalf a paid-up, nonexclusive, irrevocable      !
+  | worldwide license in this material to reproduce, prepare derivative   !
+  | works, and perform publicly and display publicly. Beginning five (5)  !
+  | years after February 14, 2018, subject to additional five-year        !
+  | worldwide renewals, the Government is granted for itself and others   !
+  | acting on its behalf a paid-up, nonexclusive, irrevocable worldwide   !
+  | license in this material to reproduce, prepare derivative works,      !
+  | distribute copies to the public, perform publicly and display         !
+  | publicly, and to permit others to do so. NEITHER THE UNITED STATES    !
+  | NOR THE UNITED STATES DEPARTMENT OF ENERGY, NOR LOS ALAMOS NATIONAL   !
+  | SECURITY, LLC, NOR ANY OF THEIR EMPLOYEES, MAKES ANY WARRANTY,        !
+  | EXPRESS OR IMPLIED, OR ASSUMES ANY LEGAL LIABILITY OR RESPONSIBILITY  !
+  | FOR THE ACCURACY, COMPLETENESS, OR USEFULNESS OF ANY INFORMATION,     !
+  | APPARATUS, PRODUCT, OR PROCESS DISCLOSED, OR REPRESENTS THAT ITS USE  !
+  | WOULD NOT INFRINGE PRIVATELY OWNED RIGHTS.                            !
+  +-----------------------------------------------------------------------+
+  
+1mcnp     version 6     ld=02/20/18                     12/12/24 22:30:30 
+ *************************************************************************                 probid =  12/12/24 22:30:30 
+ ip inp=/media/steph/MCNP/MCNP_Simulations/NE4253/Pet_Project/pet_project.i outp=
+
+ /media/steph/MCNP/MCNP_Simulations/NE4253/Pet_Project/outputs/pet_project.o s=/m
+
+ edia/steph/MCNP/MCNP_Simulations/NE4253/Pet_Project/outputs/pet_project.s runtpe
+
+ =/media/steph/MCNP/MCNP_Simulations/NE4253/Pet_Project/outputs/pet_project.runtp
+
+ e comout=/media/steph/MCNP/MCNP_Simulations/NE4253/Pet_Project/outputs/pet_proje
+
+ ct.comout srctp=/media/steph/MCNP/MCNP_Simulations/NE4253/Pet_Project/outputs/pe
+
+ t_project.srctp meshtal=/media/steph/MCNP/MCNP_Simulations/NE4253/Pet_Project/ou
+
+ tputs/pet_project.meshtal mdata=/media/steph/MCNP/MCNP_Simulations/NE4253/Pet_Pr
+
+ oject/outputs/pet_project.mdata tasks 7
+
+ 
+  warning.  universe map (print table 128) disabled.
+         1-       Pet Project
+         2-       c === Cell Cards ===
+         3-        c --- U1: fuel rod ---
+         4-         1  6 -14.30  2 -3 -5  IMP:n=1 U=1 $ fuel pellet stack
+         5-         2  1 -06.56  -2 -5    IMP:n=1 U=1 $ bottom cladding spacer
+         6-         3  1 -06.56  3 -5     IMP:n=1 U=1 $ top cladding spacer
+         7-         4  1 -06.56  5        IMP:n=1 U=1 $ cladding
+         8-        c --- U2: heat pipe ---
+         9-         10  8 -0.00022  12 -13     IMP:n=1 U=2 $ vapor core
+        10-         11  9 -3.42000  12 13 -14  IMP:n=1 U=2 $ mesh wick
+        11-         12  8 -0.75100  12 14 -15  IMP:n=1 U=2 $ liquid annulus
+        12-         13  7 -8.44000  12 15      IMP:n=1 U=2 $ heat pipe container walls
+        13-         14  7 -8.44000  -12        IMP:n=1 U=2 $ heat pipe end cap
+        14-        c --- U3: fuel assembly ---
+        15-         c --- fuel rods ---
+        16-          20  0  -28  IMP:n=1 U=3 FILL=1 $ upper fuel rod
+        17-          21          LIKE 20 BUT TRCL=1 $ upper left fuel rod
+        18-          22          LIKE 20 BUT TRCL=2 $ lower left fuel rod
+        19-          23          LIKE 20 BUT TRCL=3 $ lower fuel rod
+        20-          24          LIKE 20 BUT TRCL=4 $ lower right fuel rod
+        21-          25          LIKE 20 BUT TRCL=5 $ upper right fuel rod
+        22-         26  0  -34  IMP:n=1 U=3 FILL=2 $ heat pipe
+        23-         c --- moderator matrix slices ---
+        24-          27  3 -4.26  36 -37 34 28   IMP:n=1 U=3 $ upper moderator matrix slice
+        25-          28  3 -4.26  37 35 34 29    IMP:n=1 U=3 $ upper left moderator matrix slice
+        26-          29  3 -4.26  -35 36 34 30   IMP:n=1 U=3 $ lower left moderator matrix slice
+        27-          30  3 -4.26  -36 37 34 31   IMP:n=1 U=3 $ lower moderator matrix slice
+        28-          31  3 -4.26  -37 -35 34 32  IMP:n=1 U=3 $ lower right moderator matrix slice
+        29-          32  3 -4.26  35 -36 34 33   IMP:n=1 U=3 $ upper right moderator matrix slice
+        30-        c --- U4: control rod ---
+        31-         40  3 -4.26  60   IMP:n=1 U=4 $ moderator surrounding control rod
+        32-         41  4 -2.52  -60  IMP:n=1 U=4 $ control rod
+        33-        c --- U5: reflector ---
+        34-         50  2 -3.01  -38:38  IMP:n=1 U=5
+        35-        c --- U6: core lattice ---
+        36-         60  0  -22 -25 -23 -26 -24 -27  IMP:n=1 U=6 LAT=2 FILL=-6:6 -6:6 0:0
+        37-             $ layout, bottom-->top
+        38-              5 5R      5 5 5 5 5 5 5            $
+        39-              5 4R     5 3 3 3 3 3 3 5           $
+        40-              5 3R    5 3 3 3 3 3 3 3 5          $
+        41-              5 2R   5 3 3 4 3 3 4 3 3 5         $
+        42-              5 1R  5 3 3 3 3 3 3 3 3 3 5        $
+        43-              5    5 3 3 3 3 3 3 3 3 3 3 5       $
+        44-                  5 3 3 4 3 3 4 3 3 4 3 3 5      $
+        45-                   5 3 3 3 3 3 3 3 3 3 3 5  5    $
+        46-                    5 3 3 3 3 3 3 3 3 3 5   5 1R $
+        47-                     5 3 3 4 3 3 4 3 3 5    5 2R $
+        48-                      5 3 3 3 3 3 3 3 5     5 3R $
+        49-                       5 3 3 3 3 3 3 5      5 4R $
+        50-                        5 5 5 5 5 5 5       5 5R $
+        51-              $ Note: for whatever stupid reason, the lattice surfaces (22 through 27) have to be given in a specific order.
+        52-        c --- U7: reflector cap above the core
+        53-         70  0  -43  IMP:n=1 U=7 FILL=2 $ heat pipe
+        54-         c --- reflector slices ---
+        55-          71  2 -3.01  45 -46 43   IMP:n=1 U=7 $ upper reflector matrix slice
+        56-          72  2 -3.01  46 44 43    IMP:n=1 U=7 $ upper left reflector matrix slice
+        57-          73  2 -3.01  -44 45 43   IMP:n=1 U=7 $ lower left reflector matrix slice
+        58-          74  2 -3.01  -45 46 43   IMP:n=1 U=7 $ lower reflector matrix slice
+        59-          75  2 -3.01  -46 -44 43  IMP:n=1 U=7 $ lower right reflector matrix slice
+        60-          76  2 -3.01  44 -45 43   IMP:n=1 U=7 $ upper right reflector matrix slice
+        61-        c --- U8: reflector lattice w/heat pipes above the core ---
+        62-         80  0  -22 -25 -23 -26 -24 -27  IMP:n=1 U=8 LAT=2 FILL=-6:6 -6:6 0:0
+        63-             $ layout, bottom-->top
+        64-              5 5R      5 5 5 5 5 5 5            $
+        65-              5 4R     5 7 7 7 7 7 7 5           $
+        66-              5 3R    5 7 7 7 7 7 7 7 5          $
+        67-              5 2R   5 7 7 4 7 7 4 7 7 5         $
+        68-              5 1R  5 7 7 7 7 7 7 7 7 7 5        $
+        69-              5    5 7 7 7 7 7 7 7 7 7 7 5       $
+        70-                  5 7 7 4 7 7 4 7 7 4 7 7 5      $
+        71-                   5 7 7 7 7 7 7 7 7 7 7 5  5    $
+        72-                    5 7 7 7 7 7 7 7 7 7 5   5 1R $
+        73-                     5 7 7 4 7 7 4 7 7 5    5 2R $
+        74-                      5 7 7 7 7 7 7 7 5     5 3R $
+        75-                       5 7 7 7 7 7 7 5      5 4R $
+        76-                        5 5 5 5 5 5 5       5 5R $
+        77-              $ Note: for whatever stupid reason, the lattice surfaces (22 through 27) have to be given in a specific order.
+        78-        c --- Actual Geometry ---
+        79-         90  0        51 -52 -54     IMP:n=1 U=0 FILL=6 $ core
+        80-         91  0        52 -53 -54     IMP:n=1 U=0 FILL=8 $ reflector vessel cap above core
+        81-         92  2 -3.01  50 -53 54 -55  IMP:n=1 U=0        $ reflector vessel walls
+        82-         93  2 -3.01  50 -51 -54     IMP:n=1 U=0        $ reflector vessel base
+        83-         94  0        55:-50:53      IMP:n=0 U=0        $ outside world
+        84-       c
+        85-       
+        86-       c === Surface Cards ===
+        87-        c --- fuel rod (ref. pos. y-axis) ---
+        88-         1 PZ             00.000 $ bottom of bottom cladding spacer
+        89-         2 PZ             00.500 $ top of bottom cladding spacer, bottom of fuel pellet stack
+        90-         3 PZ             50.500 $ top of fuel pellet stack, bottom of top cladding spacer
+        91-         4 PZ             51.000 $ top of top spacer
+        92-         5 C/Z 0 1.589288 00.410 $ radius of fuel pellet stack, inside radius of cladding, radius of cladding spacers
+        93-         6 C/Z 0 1.589288 00.575 $ outside radius of cladding
+        94-        c --- in-core heat pipe ---
+        95-         10 PZ 00.000000 $ bottom of heat pipe
+        96-         11 PZ 51.000000 $ top of heat pipe (relevant to reactor core)
+        97-         12 PZ 0.000710 $ top of heat pipe endcap
+        98-         13 CZ 0.589078 $ radius of vapor core
+        99-         14 CZ 0.701078 $ outside radius of mesh wick
+       100-         15 CZ 0.801078 $ inside radius of heat pipe container
+       101-         16 CZ 0.801788 $ outside radius of heat pipe container
+       102-        c --- fuel assembly ---
+       103-         c --- fuel assembly overall bounds ---
+       104-          20   PZ  00.0000 $ bottom of moderator matrix
+       105-          21   PZ  51.0000 $ top of moderator matrix
+       106-          22   PX  02.1997 $ right bound of moderator matrix
+       107-          23 1 PX  02.1997 $ upper right bound of moderator matrix
+       108-          24 2 PX  02.1997 $ upper left bound of moderator matrix
+       109-          25 3 PX  02.1997 $ left bound of moderator matrix
+       110-          26 4 PX  02.1997 $ lower left bound of moderator matrix
+       111-          27 5 PX  02.1997 $ lower right bound of moderator matrix
+       112-         c --- fuel rod slots ---
+       113-          28   C/Z 0 1.589288 0.575 $ upper fuel rod slot
+       114-          29 1 C/Z 0 1.589288 0.575 $ upper left fuel rod slot
+       115-          30 2 C/Z 0 1.589288 0.575 $ lower left fuel rod slot
+       116-          31 3 C/Z 0 1.589288 0.575 $ lower fuel rod slot
+       117-          32 4 C/Z 0 1.589288 0.575 $ lower right fuel rod slot
+       118-          33 5 C/Z 0 1.589288 0.575 $ upper right fuel rod slot
+       119-         34 CZ 0.801788 $ heat pipe slot
+       120-         c --- cell simplification slicing ---
+       121-          35   PY 0 $ left --> right (x-axis) slice
+       122-          36 1 PY 0 $ lower left --> upper right slice
+       123-          37 2 PY 0 $ lower right --> upper left slice
+       124-        38 PZ 999 $ dummy surface for material universes
+       125-        c --- heat pipe and reflector assembly above core ---
+       126-         c --- reflector disk overall dimensions ---
+       127-          40   PZ  51 $ bottom of reflector disk
+       128-          41   PZ  60 $ top of reflector disk
+       129-          42   CZ  24 $ radius of reflector disk
+       130-         43 CZ 0.801788 $ heat pipe slot
+       131-         c --- reflector cell simplification slicing ---
+       132-          44   PY 0 $ left --> right (x-axis) slice
+       133-          45 1 PY 0 $ lower left --> upper right slice
+       134-          46 2 PY 0 $ lower right --> upper left slice
+       135-        c --- reflector vessel ---
+       136-         50 PZ -04.00 $ bottom of reflector vessel
+       137-         51 PZ  00.00 $ bottom of inside of reflector vessel
+       138-         52 PZ  51.00 $ top of inside of reflector vessel
+       139-         53 PZ  56.00 $ top of reflector vessel
+       140-         54 CZ  24.20 $ inside radius of reflector vessel
+       141-         55 CZ  30.00 $ outside radius of reflector vessel
+       142-        c --- control rod ---
+       143-         60 CZ  1.25 $ radius of control rod
+       144-       c
+       145-       
+       146-       c === Data Cards ===
+       147-        c --- Coordinate Transformations ---
+       148-         c --- Standard Hexagon (counterclockwise) ---
+       149-          *TR1  0 0 0  060 030 90  150 060 90  90 90 0  1
+       150-          *TR2  0 0 0  120 030 90  150 120 90  90 90 0  1
+       151-          *TR3  0 0 0  180 090 90  090 180 90  90 90 0  1
+       152-          *TR4  0 0 0  120 150 90  030 120 90  90 90 0  1
+       153-          *TR5  0 0 0  060 150 90  030 060 90  90 90 0  1
+       154-        c --- Run Mode ---
+       155-         MODE n
+       156-         MPHYS OFF $ don't need it
+       157-        c --- Materials ---
+       158-         M1 $ clad (Zircaloy-4)
+       159-            $ O
+       160-             08016.70c  0.006787419800 $ no XS data for 18O --> add to 16O since XS's similar
+       161-             08017.70c  0.000002580200
+       162-            $ Cr
+       163-             24050.70c  0.000075646450
+       164-             24052.70c  0.001458766490
+       165-             24053.70c  0.000165412410
+       166-             24054.70c  0.000041174650
+       167-            $ Fe
+       168-             26054.70c  0.000189494900
+       169-             26056.70c  0.002974664680
+       170-             26057.70c  0.000068697980
+       171-             26058.70c  0.000009142440
+       172-            $ Zr
+       173-             40090.70c  0.502949475000
+       174-             40091.70c  0.109681110000
+       175-             40092.70c  0.167649825000
+       176-             40094.70c  0.169898190000
+       177-             40096.70c  0.027371400000
+       178-            $ Sn
+       179-             50112.70c  0.000103566900
+       180-             50114.70c  0.000070468200
+       181-             50115.70c  0.000036301800
+       182-             50116.70c  0.001552435800
+       183-             50117.70c  0.000819993600
+       184-             50118.70c  0.002585969400
+       185-             50119.70c  0.000917154300
+       186-             50120.70c  0.003478566600
+       187-             50122.70c  0.000494345100
+       188-             50124.70c  0.000618198300
+       189-         M2 $ reflector (BeO)
+       190-            $ O
+       191-             08016.70c  0.499810000000 $ no XS data for 18O --> add to 16O since XS's similar
+       192-             08017.70c  0.000190000000
+       193-            $ Be
+       194-             04009.70c  0.500000000000
+       195-         M3 $ moderator (YH2)
+       196-            $ Y
+       197-             39089.70c  0.333333333333
+       198-            $ H
+       199-             01001.70c  0.666590000000
+       200-             01002.70c  0.000076666667
+       201-         M4 $ control rod (B4C)
+       202-            $ B
+       203-             05010.70c  0.159200000000
+       204-             05011.70c  0.640800000000
+       205-            $ C
+       206-             06000.70c  0.200000000000
+       207-         M5 $ control rod clad (SS316LN)
+  warning.  material        5 is not used in the problem.
+       208-            $ C
+       209-             06000.70c  -0.000300000000
+       210-            $ Mn
+       211-             25055.70c  -0.020000000000
+       212-            $ P
+       213-             15031.70c  -0.000450000000
+       214-            $ S
+       215-             16032.70c  -0.000284144116
+       216-             16033.70c  -0.000002313606
+       217-             16034.70c  -0.000013506637
+       218-             16036.70c  -0.000000033651
+       219-            $ Si
+       220-             14028.70c  -0.009186648255
+       221-             14029.70c  -0.000483362866
+       222-             14030.70c  -0.000329988419
+       223-            $ Cr
+       224-             24050.70c  -0.007095271645
+       225-             24052.70c  -0.142289005132
+       226-             24053.70c  -0.016445108007
+       227-             24054.70c  -0.004170721786
+       228-            $ Ni
+       229-             28058.70c  -0.080637180028
+       230-             28060.70c  -0.032131128768
+       231-             28061.70c  -0.001420029729
+       232-             28062.70c  -0.004601782890
+       233-             28064.70c  -0.001209779471
+       234-            $ Fe
+       235-             26054.70c  -0.036806313420
+       236-             26056.70c  -0.599153573620
+       237-             26057.70c  -0.014084559911
+       238-             26058.70c  -0.001907248097
+       239-            $ N
+       240-             07014.70c  -0.001992204133
+       241-             07015.70c  -0.000007796326
+       242-            $ Mo
+       243-             42092.70c  -0.003537272250
+       244-             42094.70c  -0.002258557333
+       245-             42095.70c  -0.003932152616
+       246-             42096.70c  -0.004168464785
+       247-             42097.70c  -0.002414064938
+       248-             42098.70c  -0.006171387897
+       249-             42100.70c  -0.002517472721
+       250-         M6 $ fuel (UN)
+       251-            $ U
+       252-             92234.70c -0.004939274223
+       253-             92235.70c -0.229723000000
+       254-             92238.70c -0.684229725777
+       255-            $ N
+       256-             07014.70c -0.080791841016
+       257-             07015.70c -0.000316158984
+       258-         M7 $ heat pipe container (Inconel 625)
+       259-            $ C
+       260-             06000.70c  0.004852000000
+       261-            $ Al
+       262-             13027.70c  0.008639000000
+       263-            $ Si
+       264-             14028.70c  0.009567214020
+       265-             14029.70c  0.000486021900
+       266-             14030.70c  0.000320764080
+       267-            $ P
+       268-             15031.70c  0.000281000000
+       269-            $ S
+       270-             16032.70c  0.000258372800
+       271-             16033.70c  0.000002040000
+       272-             16034.70c  0.000011560000
+       273-             16036.70c  0.000000027200
+       274-            $ Ti
+       275-             22046.70c  0.000401692500
+       276-             22047.70c  0.000362253600
+       277-             22048.70c  0.003589426800
+       278-             22049.70c  0.000263412900
+       279-             22050.70c  0.000252214200
+       280-            $ Cr
+       281-             24050.70c  0.010574861000
+       282-             24052.70c  0.203925668200
+       283-             24053.70c  0.023123533800
+       284-             24054.70c  0.005755937000
+       285-            $ Mn
+       286-             25055.70c  0.005303000000
+       287-            $ Fe
+       288-             26054.70c  0.003049161150
+       289-             26056.70c  0.047865309180
+       290-             26057.70c  0.001105418730
+       291-             26058.70c  0.000147110940
+       292-            $ Co
+       293-             27059.70c  0.009887000000
+       294-            $ Ni
+       295-             28058.70c  0.395963842698
+       296-             28060.70c  0.152524563302
+       297-             28061.70c  0.006630137158
+       298-             28062.70c  0.021139778490
+       299-             28064.70c  0.005383678352
+       300-            $ Nb
+       301-             41093.70c  0.023124000000
+       302-            $ Mo
+       303-             42092.70c  0.008154517000
+       304-             42094.70c  0.005095883000
+       305-             42095.70c  0.008778390000
+       306-             42096.70c  0.009209028000
+       307-             42097.70c  0.005278076000
+       308-             42098.70c  0.013355299000
+       309-             42100.70c  0.005338807000
+       310-         M8 $ heat pipe working fluid (Na)
+       311-            $ Na
+       312-             11023.70c  1
+       313-         M9 $ saturated heat pipe wick
+       314-            $ Inconel 625
+       315-             $ C
+       316-              06000.70c  -0.000847949016
+       317-             $ Al
+       318-              13027.70c  -0.003391785928
+       319-             $ Si
+       320-              14028.70c  -0.003894893035
+       321-              14029.70c  -0.000204932921
+       322-              14030.70c  -0.000139906259
+       323-             $ P
+       324-              15031.70c  -0.000126763717
+       325-             $ S
+       326-              16032.70c  -0.000120063881
+       327-              16033.70c  -0.000000977604
+       328-              16034.70c  -0.000005707171
+       329-              16036.70c  -0.000000014219
+       330-             $ Ti
+       331-              22046.70c  -0.000268631269
+       332-              22047.70c  -0.000247523857
+       333-              22048.70c  -0.002504652956
+       334-              22049.70c  -0.000187639077
+       335-              22050.70c  -0.000183320986
+       336-             $ Cr
+       337-              24050.70c  -0.007685848400
+       338-              24052.70c  -0.154132466955
+       339-              24053.70c  -0.017813920789
+       340-              24054.70c  -0.004517872883
+       341-             $ Mn
+       342-              25055.70c  -0.004239732410
+       343-             $ Fe
+       344-              26054.70c  -0.002393330123
+       345-              26056.70c  -0.038959954505
+       346-              26057.70c  -0.000915848352
+       347-              26058.70c  -0.000124018786
+       348-             $ Co
+       349-              27059.70c  -0.008478608309
+       350-             $ Ni
+       351-              28058.70c  -0.333822286327
+       352-              28060.70c  -0.133016641503
+       353-              28061.70c  -0.005878647672
+       354-              28062.70c  -0.019050488684
+       355-              28064.70c  -0.005008252382
+       356-             $ Nb
+       357-              41093.70c  -0.031262673330
+       358-             $ Mo
+       359-              42092.70c  -0.010906972946
+       360-              42094.70c  -0.006964129983
+       361-              42095.70c  -0.012124563555
+       362-              42096.70c  -0.012853218363
+       363-              42097.70c  -0.007443628625
+       364-              42098.70c  -0.019029115117
+       365-              42100.70c  -0.007762480501
+       366-            $ Na
+       367-             11023.70c  -0.143488401927
+       368-         c --- Material TSL XS Correction ---
+       369-          c MT1  u-un.40t  n-un.40t $ don't have MCNP 6.3
+       370-          c MT2  be-beo.40t  o-beo.40t $ don't have MCNP 6.3
+       371-          MT2  be/o.10t  o/be.10t
+       372-          c MT3  y-yh2.40t  h-yh2.40t $ don't have MCNP 6.3
+       373-        c --- Criticality Calculation ---
+       374-         KCODE 10000 1.0 30 120 2000 0 6500 1
+       375-         KSRC 0 2 20
+       376-        c --- Tallies ---
+       377-         FC4 Fission energy released in each mesh cell per particle simulated
+       378-         FMESH4:n ORIGIN= -30 -30 -4 GEOM=REC OUT=COL
+       379-              IMESH = 30 IINTS = 300
+       380-              JMESH = 30 JINTS = 300
+       381-              KMESH = 56 KINTS = 1
+       382-         FM4 -1 0 -6 -8 $ note: parentheses may not be used on FMESH multipliers (do not ask me why)
+       383-       c
+
+ ***************************************************
+ * Random Number Generator  =                    1 *
+ * Random Number Seed       =       19073486328125 *
+ * Random Number Multiplier =       19073486328125 *
+ * Random Number Adder      =                    0 *
+ * Random Number Bits Used  =                   48 *
+ * Random Number Stride     =               152917 *
+ ***************************************************
+
+ 
+  comment.  total fission nubar data are being used.
+
+ surface        1   and surface       10   are the same.       10   will be deleted.
+
+ surface        1   and surface       20   are the same.       20   will be deleted.
+
+ surface        1   and surface       51   are the same.       51   will be deleted.
+
+ surface        4   and surface       11   are the same.       11   will be deleted.
+
+ surface        4   and surface       21   are the same.       21   will be deleted.
+
+ surface        4   and surface       40   are the same.       40   will be deleted.
+
+ surface        4   and surface       52   are the same.       52   will be deleted.
+
+ surface        6   and surface       28   are the same.       28   will be deleted.
+
+ surface       16   and surface       34   are the same.       34   will be deleted.
+
+ surface       16   and surface       43   are the same.       43   will be deleted.
+
+ surface       29   and surface    21028   are the same.    21028   will be deleted.
+
+ surface       30   and surface    22028   are the same.    22028   will be deleted.
+
+ surface       31   and surface    23028   are the same.    23028   will be deleted.
+
+ surface       32   and surface    24028   are the same.    24028   will be deleted.
+
+ surface       33   and surface    25028   are the same.    25028   will be deleted.
+
+ surface       35   and surface       44   are the same.       44   will be deleted.
+
+ surface       36   and surface       45   are the same.       45   will be deleted.
+
+ surface       37   and surface       46   are the same.       46   will be deleted.
+ 
+  comment.          18 surfaces were deleted for being the same as others.
+ 
+  warning.    1 of the materials appear at more than one density.
+1cells                                                                                                  print table 60
+
+                               atom        gram                                            neutron                                     
+              cell      mat   density     density     volume       mass            pieces importance                                   
+
+        1        1        6  8.32168E-02 1.43000E+01 2.64051E+01 3.77593E+02           1  1.0000E+00                                   
+        2        2        1  4.34961E-02 6.56000E+00 0.00000E+00 0.00000E+00           0  1.0000E+00                                   
+        3        3        1  4.34961E-02 6.56000E+00 0.00000E+00 0.00000E+00           0  1.0000E+00                                   
+        4        4        1  4.34961E-02 6.56000E+00 0.00000E+00 0.00000E+00           0  1.0000E+00                                   
+        5       10        8  5.76278E-06 2.20000E-04 0.00000E+00 0.00000E+00           0  1.0000E+00                                   
+        6       11        9  4.28246E-02 3.42000E+00 0.00000E+00 0.00000E+00           0  1.0000E+00                                   
+        7       12        8  1.96720E-02 7.51000E-01 0.00000E+00 0.00000E+00           0  1.0000E+00                                   
+        8       13        7  8.63523E-02 8.44000E+00 0.00000E+00 0.00000E+00           0  1.0000E+00                                   
+        9       14        7  8.63523E-02 8.44000E+00 0.00000E+00 0.00000E+00           0  1.0000E+00                                   
+       10       20        0  0.00000E+00 0.00000E+00 0.00000E+00 0.00000E+00           0  1.0000E+00                                   
+       11       21        0  0.00000E+00 0.00000E+00 0.00000E+00 0.00000E+00           0  1.0000E+00                                   
+       12       22        0  0.00000E+00 0.00000E+00 0.00000E+00 0.00000E+00           0  1.0000E+00                                   
+       13       23        0  0.00000E+00 0.00000E+00 0.00000E+00 0.00000E+00           0  1.0000E+00                                   
+       14       24        0  0.00000E+00 0.00000E+00 0.00000E+00 0.00000E+00           0  1.0000E+00                                   
+       15       25        0  0.00000E+00 0.00000E+00 0.00000E+00 0.00000E+00           0  1.0000E+00                                   
+       16       26        0  0.00000E+00 0.00000E+00 0.00000E+00 0.00000E+00           0  1.0000E+00                                   
+       17       27        3  8.46461E-02 4.26000E+00 0.00000E+00 0.00000E+00           0  1.0000E+00                                   
+       18       28        3  8.46461E-02 4.26000E+00 0.00000E+00 0.00000E+00           0  1.0000E+00                                   
+       19       29        3  8.46461E-02 4.26000E+00 0.00000E+00 0.00000E+00           0  1.0000E+00                                   
+       20       30        3  8.46461E-02 4.26000E+00 0.00000E+00 0.00000E+00           0  1.0000E+00                                   
+       21       31        3  8.46461E-02 4.26000E+00 0.00000E+00 0.00000E+00           0  1.0000E+00                                   
+       22       32        3  8.46461E-02 4.26000E+00 0.00000E+00 0.00000E+00           0  1.0000E+00                                   
+       23       40        3  8.46461E-02 4.26000E+00 0.00000E+00 0.00000E+00           0  1.0000E+00                                   
+       24       41        4  1.37322E-01 2.52000E+00 0.00000E+00 0.00000E+00           0  1.0000E+00                                   
+       25       50        2s 1.44967E-01 3.01000E+00 0.00000E+00 0.00000E+00           0  1.0000E+00                                   
+       26       60        0  0.00000E+00 0.00000E+00 0.00000E+00 0.00000E+00           0  1.0000E+00                                   
+       27       70        0  0.00000E+00 0.00000E+00 0.00000E+00 0.00000E+00           0  1.0000E+00                                   
+       28       71        2s 1.44967E-01 3.01000E+00 0.00000E+00 0.00000E+00           0  1.0000E+00                                   
+       29       72        2s 1.44967E-01 3.01000E+00 0.00000E+00 0.00000E+00           0  1.0000E+00                                   
+       30       73        2s 1.44967E-01 3.01000E+00 0.00000E+00 0.00000E+00           0  1.0000E+00                                   
+       31       74        2s 1.44967E-01 3.01000E+00 0.00000E+00 0.00000E+00           0  1.0000E+00                                   
+       32       75        2s 1.44967E-01 3.01000E+00 0.00000E+00 0.00000E+00           0  1.0000E+00                                   
+       33       76        2s 1.44967E-01 3.01000E+00 0.00000E+00 0.00000E+00           0  1.0000E+00                                   
+       34       80        0  0.00000E+00 0.00000E+00 0.00000E+00 0.00000E+00           0  1.0000E+00                                   
+       35       90        0  0.00000E+00 0.00000E+00 9.38320E+04 0.00000E+00           1  1.0000E+00                                   
+       36       91        0  0.00000E+00 0.00000E+00 9.19921E+03 0.00000E+00           1  1.0000E+00                                   
+       37       92        2s 1.44967E-01 3.01000E+00 5.92555E+04 1.78359E+05           1  1.0000E+00                                   
+       38       93        2s 1.44967E-01 3.01000E+00 7.35937E+03 2.21517E+04           1  1.0000E+00                                   
+       39       94        0  0.00000E+00 0.00000E+00 0.00000E+00 0.00000E+00           0  0.0000E+00                                   
+
+ total                                               1.69672E+05 2.00888E+05
+ 
+  warning.  surface       41 is not used for anything.
+ 
+  warning.  surface       42 is not used for anything.
+ 
+  comment.  threading will be used when possible in portions of mcnp6.
+ 
+  comment.  threading will be used for n/p/e table physics.
+ 
+  comment.  threading will generally not be used for model physics.
+
+         5 warning messages so far.
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+ 
+  warning.  plot plane coincident with surface      1
+
+       675 warning messages so far.
+
+ computer time =    0.11 minutes
+
+ mcnp     version 6     02/20/18                     12/12/24 22:33:49                     probid =  12/12/24 22:30:30 

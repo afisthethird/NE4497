@@ -1,0 +1,11 @@
+origin=0 0 26
+basis  1.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  1.0000E+00  0.0000E+00
+label 0 0 cel       
+ex=30
+ex=30
+origin=10 0 0
+origin=10 0 26
+ex=5
+ex=2.5
+end
+end
